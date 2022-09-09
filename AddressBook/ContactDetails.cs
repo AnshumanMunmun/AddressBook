@@ -52,6 +52,7 @@ namespace AddressBook
             {
                 if (contact.FirstName == name)
                 {
+                    Console.WriteLine("Given First Name exists");
                     Console.WriteLine("choose the option to change the details : \n1) First Name\n2) Last Name\n3) Address\n4) City\n5) State\n6) Zip\n7) Email\n8) Phone Number");
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
@@ -102,6 +103,20 @@ namespace AddressBook
                     }
                 }
             }
+        }
+        public void Delete() //parameterised constructor with contact for Delete Person details
+        {
+            Console.WriteLine("Enter the first name to search person details : ");
+            string name = Console.ReadLine();
+                foreach (Contacts contacts in People)
+                if (contacts.FirstName == name)
+                {
+                    Console.WriteLine("Given First Name exists");
+                    People.Remove(contacts);
+                    Console.WriteLine("Contact Deleted successfully");
+                    return;
+                }
+            Console.WriteLine("given name contact does not exists");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace AddressBook
             Contacts contact = new Contacts(); //create a Conatacts object
             while (true)
             {
-                Console.WriteLine("Enter the option : \n1)Add Contact \n2)Edit Contact");
+                Console.WriteLine("Enter the option : \n1)Add Contact \n2)Edit Contact \n3)Delete Contact");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -21,6 +21,10 @@ namespace AddressBook
                         break;
                     case 2:
                         contacts.Edit();        // Show Editing Person contact Details by objectname and methodname
+                        contacts.Display();
+                        break;
+                    case 3:
+                        contacts.Delete();        // Show Deleting Person contact Details by objectname and methodname
                         contacts.Display();
                         break;
                     default:
