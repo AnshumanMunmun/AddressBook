@@ -1,4 +1,6 @@
-﻿namespace AddressBook
+﻿using System.Diagnostics.Contracts;
+
+namespace AddressBook
 {
     internal class Program
     {
@@ -6,7 +8,21 @@
         {
             Console.WriteLine("Welcome To Address Book Program");
             ContactDetails contacts = new ContactDetails();
-            contacts.AddingPerson();
+            Contacts contact = new Contacts();
+            while (true)
+            {
+                Console.WriteLine("Enter the option : \n1)Add Contact");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        contacts.AddingPerson(contact);
+                        contacts.Display();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

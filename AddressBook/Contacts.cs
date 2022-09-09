@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AddressBook
 {
     internal class Contacts
-    {
+    {                           //using (properties) get and set for field the storage location 
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
