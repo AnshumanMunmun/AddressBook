@@ -10,8 +10,9 @@ namespace AddressBook
     internal class ContactDetails
     {                                                       //created a list name People
         public List<Contacts> People = new List<Contacts>();
-        public void AddingPerson(Contacts contact) //parameterised constructor with contact for Adding Person details
+        public void AddingPerson() //parameterised constructor with contact for Adding Person details
         {
+            Contacts contact = new Contacts();
             Console.WriteLine("Enter the First name :");
             contact.FirstName = Console.ReadLine();
             Console.WriteLine("Enter the Last name :");
@@ -50,7 +51,11 @@ namespace AddressBook
             string name = Console.ReadLine();
             foreach (Contacts contact in People)
             {
-                if (contact.FirstName == name)
+                if (contact.FirstName != name)
+                {
+                    Console.WriteLine("Contact for {0} not be found.", name);
+                }
+                else if (contact.FirstName == name)
                 {
                     Console.WriteLine("Given First Name exists");
                     Console.WriteLine("choose the option to change the details : \n1) First Name\n2) Last Name\n3) Address\n4) City\n5) State\n6) Zip\n7) Email\n8) Phone Number");
@@ -117,6 +122,14 @@ namespace AddressBook
                     return;
                 }
             Console.WriteLine("given name contact does not exists");
+        }
+        public void AddMultipleContacts(int n)
+        {
+            while (n > 0)
+            {
+                AddingPerson();
+                n--;
+            }
         }
     }
 }
